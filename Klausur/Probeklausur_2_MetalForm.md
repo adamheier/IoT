@@ -5,7 +5,6 @@
 *(Schwerpunkt etwas verschoben: mehr JSON/JSON-LD, REST/OData, Sensor-Aktor-System – ergänzend zu Probeklausur 1)*
 
 ---
-
 ## Fallbeispiel
 
 Die **MetalForm AG** fertigt Präzisionsbauteile auf mehreren **CNC-Fräsmaschinen**. Die Fertigung erfolgt auftragsbezogen über ein zentrales **ERP-System (iDempiere)**. Für die Maschinen soll eine durchgängige IoT-Lösung mit **Digitalem Zwilling**, **Zustandsüberwachung** und Anbindung an das ERP aufgebaut werden.
