@@ -1,0 +1,709 @@
+[
+    {
+        "id": "fbeb18baa6b4ece7",
+        "type": "mqtt in",
+        "z": "a5ea5f8e55f346ae",
+        "name": "BL-Sensor",
+        "topic": "Sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9e7bcf7da858a56f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 580,
+        "wires": [
+            [
+                "966fdde52340b6d6",
+                "7dfcbf673a46fb1c"
+            ]
+        ],
+        "icon": "node-red/bluetooth.svg"
+    },
+    {
+        "id": "b539ee4ba6cdf52a",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "AP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7dfcbf673a46fb1c",
+        "type": "switch",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Splitter",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "jsonata_exp",
+                "v": "payload.type = \"AirPressure\"",
+                "vt": "jsonata"
+            },
+            {
+                "t": "jsonata_exp",
+                "v": "payload.type = \"Humidity\"",
+                "vt": "jsonata"
+            },
+            {
+                "t": "jsonata_exp",
+                "v": "payload.type = \"Illuminance\"",
+                "vt": "jsonata"
+            },
+            {
+                "t": "jsonata_exp",
+                "v": "payload.type = \"Temperature\"",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "2d0d17f1edb4aa46"
+            ],
+            [
+                "8722c77b434659bf"
+            ],
+            [
+                "a9ee5f72744d1494",
+                "9f5d6f3aea8fd59c"
+            ],
+            [
+                "8d978ccf8fcd7f11",
+                "21a85feb98018a3a"
+            ]
+        ]
+    },
+    {
+        "id": "1a86c2404ffa46cc",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Hu",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "966fdde52340b6d6",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "MSG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a04a084dd1b10344",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Li",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "8b496a82453a092f",
+        "type": "mqtt out",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Humidity",
+        "topic": "Factory/ConditionMonitoring/Humidity",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7bcf7da858a56f",
+        "x": 1540,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7705b18d113f9f31",
+        "type": "mqtt out",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Illuminance",
+        "topic": "Factory/ConditionMonitoring/Illuminance",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7bcf7da858a56f",
+        "x": 1550,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "35e912b5605e4924",
+        "type": "mqtt out",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Air Pressure",
+        "topic": "Factory/ConditionMonitoring/AirPressure",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7bcf7da858a56f",
+        "x": 1550,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2d0d17f1edb4aa46",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 320,
+        "wires": [
+            [
+                "69290c59a5ecbc7c"
+            ]
+        ]
+    },
+    {
+        "id": "8722c77b434659bf",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 460,
+        "wires": [
+            [
+                "0c5680affd9c84c0"
+            ]
+        ]
+    },
+    {
+        "id": "a9ee5f72744d1494",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 660,
+        "wires": [
+            [
+                "8d53ca03203e789e"
+            ]
+        ]
+    },
+    {
+        "id": "69290c59a5ecbc7c",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "MSG-Edit AP",
+        "func": "msg.payload = {\n    Observation: {\n        MachineID: \"CC2650STK\",\n        SensorTypeCode: msg.payload.type,\n        LocationID: \"A1.005\",\n        MeasureContent: msg.payload.value,\n        MeasureUnitCode: \"hPa\",\n        DateTime: new Date(msg.payload.timestamp*1000).toISOString()\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 320,
+        "wires": [
+            [
+                "35e912b5605e4924",
+                "b539ee4ba6cdf52a"
+            ]
+        ]
+    },
+    {
+        "id": "0c5680affd9c84c0",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "MSG-Edit HU",
+        "func": "msg.payload = {\n    Observation: {\n        MachineID: \"CC2650STK\",\n        SensorTypeCode: msg.payload.type,\n        LocationID: \"A1.005\",\n        MeasureContent: msg.payload.value,\n        MeasureUnitCode: \"RH\",\n        DateTime: new Date().toLocaleString(\"sv-SE\", {\n            timeZone: \"Europe/Berlin\"\n        }).replace(\" \", \"T\")\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 460,
+        "wires": [
+            [
+                "8b496a82453a092f",
+                "1a86c2404ffa46cc"
+            ]
+        ]
+    },
+    {
+        "id": "0dcd4f4af8c60df0",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "MSG-Edit HU",
+        "func": "msg.payload = {\n    Observation: {\n        MachineID: \"CC2650STK\",\n        SensorTypeCode: msg.payload.type,\n        LocationID: \"A1.005\",\n        MeasureContent: msg.payload.value,\n        MeasureUnitCode: \"RH\",\n        DateTime: new Date(msg.payload.timestamp*1000).toISOString()\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d53ca03203e789e",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "MSG-Edit Li",
+        "func": "msg.payload = {\n    Observation: {\n        MachineID: \"CC2650STK\",\n        SensorTypeCode: msg.payload.type,\n        LocationID: \"A1.005\",\n        MeasureContent: msg.payload.value,\n        MeasureUnitCode: \"lux\",\n        DateTime: new Date(msg.payload.timestamp*1000).toISOString()\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 660,
+        "wires": [
+            [
+                "7705b18d113f9f31",
+                "a04a084dd1b10344"
+            ]
+        ]
+    },
+    {
+        "id": "6ab453c8e4ef06ca",
+        "type": "mqtt out",
+        "z": "a5ea5f8e55f346ae",
+        "name": "Temperature",
+        "topic": "Factory/ConditionMonitoring/Temperature",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7bcf7da858a56f",
+        "x": 1550,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "fe2cbadac3be0892",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d978ccf8fcd7f11",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "ALARM CRITICAL",
+        "func": "if (parseFloat(msg.payload.value) < 20) {\n    msg.payload = \"Caution! Temperature is below 20 degrees. Currently it is at \" + msg.payload.value + \"degrees.\";\n    return msg;\n} else if (parseFloat(msg.payload.value) > 40) {\n    msg.payload = \"Alarm! Temperature is above 40 degrees! Currently it is at \" + msg.payload.value + \"degrees.\";\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 720,
+        "wires": [
+            [
+                "d315f63d33f271fa"
+            ]
+        ]
+    },
+    {
+        "id": "005e9b9926612217",
+        "type": "play audio",
+        "z": "a5ea5f8e55f346ae",
+        "name": "msg",
+        "voice": "130",
+        "x": 1530,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "21a85feb98018a3a",
+        "type": "switch",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "property": "payload.value",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "",
+                "vt": "prev"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "prev"
+            },
+            {
+                "t": "lt",
+                "v": "",
+                "vt": "prev"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 670,
+        "y": 900,
+        "wires": [
+            [
+                "b805d336cbbfa693"
+            ],
+            [
+                "91c861e4aae365b2"
+            ],
+            [
+                "b805d336cbbfa693"
+            ]
+        ]
+    },
+    {
+        "id": "91c861e4aae365b2",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 900,
+        "wires": [
+            [
+                "1688620fae263461",
+                "f1e8c6e39df11e8d"
+            ]
+        ]
+    },
+    {
+        "id": "1688620fae263461",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "MSG-Edit TP",
+        "func": "msg.payload = {\n    Observation: {\n        MachineID: \"CC2650STK\",\n        SensorTypeCode: msg.payload.type,\n        LocationID: \"A1.005\",\n        MeasureContent: msg.payload.value,\n        MeasureUnitCode: \"°C\",\n        DateTime: new Date(msg.payload.timestamp*1000).toISOString()\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 900,
+        "wires": [
+            [
+                "6ab453c8e4ef06ca",
+                "da3706d0d0bf2e33"
+            ]
+        ]
+    },
+    {
+        "id": "b805d336cbbfa693",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "13",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 940,
+        "wires": [
+            [
+                "1688620fae263461",
+                "fd539be7fbd93fa5"
+            ]
+        ]
+    },
+    {
+        "id": "da3706d0d0bf2e33",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "TP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "f1e8c6e39df11e8d",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "TP stay",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "fd539be7fbd93fa5",
+        "type": "debug",
+        "z": "a5ea5f8e55f346ae",
+        "name": "TP change",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "2ce0fe38ba981f65",
+        "type": "function",
+        "z": "a5ea5f8e55f346ae",
+        "name": "ALARM CRITICAL",
+        "func": "if (parseFloat(msg.payload.value) < 100 && parseFloat(msg.payload.value) > 10) {\n    msg.payload = \"Caution! It is getting darker!\";\n    return msg;\n} else if (parseFloat(msg.payload.value) < 10) {\n    msg.payload = \"Alarm! I cant see anything!\";\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 580,
+        "wires": [
+            [
+                "f5c408c16bf0e286"
+            ]
+        ]
+    },
+    {
+        "id": "f5c408c16bf0e286",
+        "type": "play audio",
+        "z": "a5ea5f8e55f346ae",
+        "name": "msg",
+        "voice": "130",
+        "x": 1510,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9f5d6f3aea8fd59c",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 580,
+        "wires": [
+            [
+                "2ce0fe38ba981f65"
+            ]
+        ]
+    },
+    {
+        "id": "d315f63d33f271fa",
+        "type": "delay",
+        "z": "a5ea5f8e55f346ae",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1230,
+        "y": 720,
+        "wires": [
+            [
+                "005e9b9926612217"
+            ]
+        ]
+    },
+    {
+        "id": "9e7bcf7da858a56f",
+        "type": "mqtt-broker",
+        "name": "IWILR4-11",
+        "broker": "IWILR4-11.CAMPUS.fh-ludwigshafen.de",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6443a950b37e7170",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-play-audio": "2.5.0"
+        }
+    }
+]

@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Anwendungsfalldiagramm TMS" id="usecase-tms">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="UML-Anwendungsfalldiagramm – TMS (Soll-Prozess Disposition, Kommissionierung &amp; Beladung)" style="text;html=1;align=center;verticalAlign=middle;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="700" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- System boundary -->
+        <mxCell id="sys" value="TMS – Transportmanagementsystem" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="350" y="70" width="400" height="700" as="geometry"/>
+        </mxCell>
+
+        <!-- Use cases -->
+        <mxCell id="uc1" value="Auftragsdaten empfangen &amp; ins TMS übernehmen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="110" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc2" value="Aufträge disponieren &amp; nach Zustellbezirken sortieren" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="200" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc3" value="Begleitdokumente prüfen &amp; erzeugen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="300" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ucext" value="Fehlermeldung an Spediteur senden &amp; Korrektur empfangen" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="390" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc4" value="Touren &amp; Routen optimieren" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="490" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc5" value="Scannergestützt kommissionieren" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="580" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc6" value="Digitale Sammelrollkarte bereitstellen (Mobilgerät)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="670" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Actors -->
+        <mxCell id="disponent" value="Disponent" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="180" width="40" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="lager" value="Lagermitarbeiter / Kommissionierer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="500" width="40" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="spediteur" value="Fernverkehrs-/Versandspediteur (extern, EDI)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="150" width="40" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="fahrer" value="Fahrer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="600" width="40" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Associations Disponent -->
+        <mxCell id="e1" style="endArrow=none;html=1;" edge="1" parent="1" source="disponent" target="uc1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="endArrow=none;html=1;" edge="1" parent="1" source="disponent" target="uc2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="endArrow=none;html=1;" edge="1" parent="1" source="disponent" target="uc3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="endArrow=none;html=1;" edge="1" parent="1" source="disponent" target="uc4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Associations Lagermitarbeiter -->
+        <mxCell id="e5" style="endArrow=none;html=1;" edge="1" parent="1" source="lager" target="uc3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="endArrow=none;html=1;" edge="1" parent="1" source="lager" target="uc5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Associations Spediteur -->
+        <mxCell id="e7" style="endArrow=none;html=1;" edge="1" parent="1" source="spediteur" target="uc1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" style="endArrow=none;html=1;" edge="1" parent="1" source="spediteur" target="ucext"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Associations Fahrer -->
+        <mxCell id="e9" style="endArrow=none;html=1;" edge="1" parent="1" source="fahrer" target="uc6"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Extend relation -->
+        <mxCell id="ext1" value="«extend»" style="endArrow=open;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="ucext" target="uc3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
