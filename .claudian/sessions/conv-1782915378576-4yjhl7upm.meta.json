@@ -1,0 +1,25 @@
+{
+  "id": "conv-1782915378576-4yjhl7upm",
+  "providerId": "claude",
+  "title": "1 Jul, 16:16",
+  "createdAt": 1782915378581,
+  "updatedAt": 1782915380782,
+  "lastResponseAt": 1782915379964,
+  "sessionId": "5f25be7e-ded8-4df6-8d67-1e6f86b3153b",
+  "providerState": {
+    "providerSessionId": "5f25be7e-ded8-4df6-8d67-1e6f86b3153b"
+  },
+  "currentNote": "Klausur/IoT_SS25.pdf",
+  "externalContextPaths": [
+    "/Users/I569892/Library/CloudStorage/OneDrive-Personal/HWG LU/2. Semester/IoT Technologien/IoT/Quellen"
+  ],
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 0,
+    "percentage": 0
+  }
+}

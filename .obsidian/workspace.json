@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7b0fea7db6052a2a",
+        "id": "c48fb55b1f42be4b",
         "type": "tabs",
         "children": [
           {
-            "id": "4c811a2840c2e658",
+            "id": "8cb69cb72e34c80f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -57,7 +57,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Suchen"
+              "title": "Search"
             }
           },
           {
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 474.5
   },
   "right": {
     "id": "f20d13c46c1fa5f6",
@@ -169,13 +169,43 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "77c27bdc608140d9",
+            "type": "leaf",
+            "state": {
+              "type": "vault-terminal",
+              "state": {},
+              "icon": "bot",
+              "title": "Claude"
+            }
+          },
+          {
+            "id": "35a961ecf34da1c3",
+            "type": "leaf",
+            "state": {
+              "type": "vault-terminal",
+              "state": {},
+              "icon": "bot",
+              "title": "Claude"
+            }
+          },
+          {
+            "id": "8c339239fcc3c1a7",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
         ],
         "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 373.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,15 +216,37 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "realclaudian:Open Claudian": false,
+      "claude-sidebar:New Claude Tab": false
     }
   },
-  "active": "928416c54d3be5ca",
+  "active": "8cb69cb72e34c80f",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
-    "Klausur/IoT_SS25.pdf",
-    "Klausur/Altklausur SoSe24.pdf",
     "Klausur/Probeklausur_2_MetalForm.md",
-    "Klausur/Probeklausur_1_AquaPur.md"
+    "Klausur/Altklausur SoSe24.pdf",
+    "Klausur/IoT_SS25.pdf",
+    "PDF3_IoT-Anwendungen.md",
+    "PDF2_IoT-Technologien.md",
+    "PDF1_IoT-Grundlagen.md",
+    "Alle_Themen.md",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-1_S26.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-2_S26.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-3_S26.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-4-0_S26_aktualisiert_29-04-2026.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-4-1_S26.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-4-2_S26.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-4-3_S26.pdf",
+    "Quellen/PDF's/MW220_IoT-Technologien-Anwendungen-4-4_S26.pdf",
+    "Untitled.canvas",
+    "Klausur/Klausur Themen (60 min, 30 Punkte) OLAT.md",
+    "Klausur/Probeklausur_1_AquaPur.md",
+    "VL3_IoT-Anwendungen.md",
+    "VL2_IoT-Technologien.md",
+    "VL1_IoT-Grundlagen.md",
+    "PraxisprojektGruppe2/Image 29.05.26 at 12.51.png",
+    "PraxisprojektGruppe2/Image 29.05.26 at 12.50.png",
+    "PraxisprojektGruppe2/Bildschirmfoto 2026-05-11 um 16.10.46.png",
+    "conflict-files-obsidian-git.md"
   ]
 }
