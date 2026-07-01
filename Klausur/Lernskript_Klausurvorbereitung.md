@@ -1,4 +1,4 @@
-# Lernscript Klausurvorbereitung — IoT Technologien (MW220)
+# Lernskript Klausurvorbereitung — IoT Technologien (MW220)
 > Basiert auf Altklausur SoSe24 (Helios SE) und SS25 (Airflow SE) — beide nahezu identisch in Struktur
 
 ---
