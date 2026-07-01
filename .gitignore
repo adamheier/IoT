@@ -6,6 +6,9 @@
 # Plugins nicht teilen – jeder Kollege installiert sie selbst
 /.obsidian/plugins/
 
+# Themes nicht teilen – jeder Kollege installiert sie selbst
+/.obsidian/themes/
+
 # Optionale persönliche Einstellungen / Cache
 /.obsidian/cache
 /.obsidian/hotkeys.json

@@ -1,1 +1,7 @@
-{}
+{
+  "theme": "moonstone",
+  "cssTheme": "Claude",
+  "enabledCssSnippets": [
+    "Custom_Code_Settings"
+  ]
+}

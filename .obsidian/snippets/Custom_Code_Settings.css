@@ -1,0 +1,209 @@
+/* @settings
+name: Codeblock Settings
+id: codeblock-settings
+settings:
+    -
+        id: codeblock-style-settings
+        title: Codeblock Style Settings
+        description: You can pick your colors for code variables here.
+        type: heading
+        level: 1
+        collapsed: true
+    -
+        id: code-background
+        title: Code background color
+        description: Background for code blocks
+        type: variable-themed-color
+        format: hex
+        default-light: '#F5F0E8'
+        default-dark: '#2A2A2A'
+    -
+        id: code-normal
+        title: Code text color
+        description: Color of code when syntax highlighting is not present
+        type: variable-themed-color
+        format: hex
+        default-light: '#1A1A1A'
+        default-dark: '#E8E6E3'
+    -
+        id: syntax-highlighting
+        title: Syntax highlighting
+        type: heading
+        level: 3
+        collapsed: false
+    -
+        id: code-comment
+        title: 'Syntax: comments'
+        description: Syntax highlighting for comments
+        type: variable-themed-color
+        format: hex
+        default-light: '#8B8680'
+        default-dark: '#8B8680'
+    -
+        id: code-function
+        title: 'Syntax: functions'
+        description: Syntax highlighting for functions
+        type: variable-themed-color
+        format: hex
+        default-light: '#6F42C1'
+        default-dark: '#DCDCAA'
+    -
+        id: code-keyword
+        title: 'Syntax: keywords'
+        description: Syntax highlighting for keywords
+        type: variable-themed-color
+        format: hex
+        default-light: '#CF222E'
+        default-dark: '#C586C0'
+    -
+        id: code-important
+        title: 'Syntax: important'
+        description: Syntax highlighting for important text
+        type: variable-themed-color
+        format: hex
+        default-light: '#CF222E'
+        default-dark: '#F47067'
+    -
+        id: code-operator
+        title: 'Syntax: operators'
+        description: Syntax highlighting for operators
+        type: variable-themed-color
+        format: hex
+        default-light: '#24292F'
+        default-dark: '#D4D4D4'
+    -
+        id: code-property
+        title: 'Syntax: properties'
+        description: Syntax highlighting for properties
+        type: variable-themed-color
+        format: hex
+        default-light: '#0550AE'
+        default-dark: '#9CDCFE'
+    -
+        id: code-punctuation
+        title: 'Syntax: punctuation'
+        description: Syntax highlighting for punctuation
+        type: variable-themed-color
+        format: hex
+        default-light: '#24292F'
+        default-dark: '#CCCCCC'
+    -
+        id: code-string
+        title: 'Syntax: strings'
+        description: Syntax highlighting for strings
+        type: variable-themed-color
+        format: hex
+        default-light: '#0A7D31'
+        default-dark: '#B8D471'
+    -
+        id: code-tag
+        title: 'Syntax: tags'
+        description: Syntax highlighting for tags
+        type: variable-themed-color
+        format: hex
+        default-light: '#116329'
+        default-dark: '#E06C75'
+    -
+        id: code-value
+        title: 'Syntax: values'
+        description: Syntax highlighting for values
+        type: variable-themed-color
+        format: hex
+        default-light: '#0550AE'
+        default-dark: '#D19A66'
+*/
+
+
+/* =========================================================
+   FALLBACK: Standardfarben, falls Style Settings nicht greift
+   ========================================================= */
+.theme-light {
+    --code-background: #F5F0E8;
+    --code-normal:     #1A1A1A;
+    --code-comment:    #8B8680;
+    --code-function:   #6F42C1;
+    --code-keyword:    #CF222E;
+    --code-important:  #CF222E;
+    --code-operator:   #24292F;
+    --code-property:   #0550AE;
+    --code-punctuation:#24292F;
+    --code-string:     #0A7D31;
+    --code-tag:        #116329;
+    --code-value:      #0550AE;
+}
+.theme-dark {
+    --code-background: #2A2A2A;
+    --code-normal:     #E8E6E3;
+    --code-comment:    #8B8680;
+    --code-function:   #DCDCAA;
+    --code-keyword:    #C586C0;
+    --code-important:  #F47067;
+    --code-operator:   #D4D4D4;
+    --code-property:   #9CDCFE;
+    --code-punctuation:#CCCCCC;
+    --code-string:     #B8D471;
+    --code-tag:        #E06C75;
+    --code-value:      #D19A66;
+}
+
+/* =========================================================
+   READING VIEW (Markdown Preview) – Prism-Tokens
+   ========================================================= */
+.markdown-rendered pre,
+.markdown-rendered pre > code,
+.markdown-rendered code {
+    background-color: var(--code-background) !important;
+    color:            var(--code-normal) !important;
+}
+
+.markdown-rendered .token.comment,
+.markdown-rendered .token.prolog,
+.markdown-rendered .token.doctype,
+.markdown-rendered .token.cdata        { color: var(--code-comment) !important; font-style: italic; }
+.markdown-rendered .token.function,
+.markdown-rendered .token.class-name   { color: var(--code-function) !important; }
+.markdown-rendered .token.keyword,
+.markdown-rendered .token.atrule,
+.markdown-rendered .token.selector     { color: var(--code-keyword) !important; }
+.markdown-rendered .token.important    { color: var(--code-important) !important; font-weight: bold; }
+.markdown-rendered .token.operator,
+.markdown-rendered .token.entity,
+.markdown-rendered .token.url          { color: var(--code-operator) !important; }
+.markdown-rendered .token.property,
+.markdown-rendered .token.attr-name    { color: var(--code-property) !important; }
+.markdown-rendered .token.punctuation  { color: var(--code-punctuation) !important; }
+.markdown-rendered .token.string,
+.markdown-rendered .token.char,
+.markdown-rendered .token.attr-value,
+.markdown-rendered .token.regex        { color: var(--code-string) !important; }
+.markdown-rendered .token.tag,
+.markdown-rendered .token.symbol       { color: var(--code-tag) !important; }
+.markdown-rendered .token.boolean,
+.markdown-rendered .token.number,
+.markdown-rendered .token.constant,
+.markdown-rendered .token.variable     { color: var(--code-value) !important; }
+
+/* =========================================================
+   LIVE PREVIEW / SOURCE MODE – CodeMirror
+   ========================================================= */
+.cm-s-obsidian .cm-line .HyperMD-codeblock,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+    background-color: var(--code-background) !important;
+    color:            var(--code-normal) !important;
+}
+.cm-s-obsidian span.cm-comment    { color: var(--code-comment) !important; font-style: italic; }
+.cm-s-obsidian span.cm-def,
+.cm-s-obsidian span.cm-property   { color: var(--code-property) !important; }
+.cm-s-obsidian span.cm-keyword,
+.cm-s-obsidian span.cm-atom       { color: var(--code-keyword) !important; }
+.cm-s-obsidian span.cm-string,
+.cm-s-obsidian span.cm-string-2   { color: var(--code-string) !important; }
+.cm-s-obsidian span.cm-number     { color: var(--code-value) !important; }
+.cm-s-obsidian span.cm-variable,
+.cm-s-obsidian span.cm-variable-2,
+.cm-s-obsidian span.cm-variable-3 { color: var(--code-normal) !important; }
+.cm-s-obsidian span.cm-operator   { color: var(--code-operator) !important; }
+.cm-s-obsidian span.cm-tag        { color: var(--code-tag) !important; }
+.cm-s-obsidian span.cm-bracket,
+.cm-s-obsidian span.cm-punctuation{ color: var(--code-punctuation) !important; }
+.cm-s-obsidian span.cm-meta       { color: var(--code-function) !important; }
