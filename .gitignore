@@ -1,17 +1,6 @@
 # === Obsidian ===
-# Nutzerspezifischer UI-/Layout-Zustand (nicht teilen)
-/.obsidian/workspace.json
-/.obsidian/workspace-mobile.json
-
-# Plugins nicht teilen – jeder Kollege installiert sie selbst
-/.obsidian/plugins/
-
-# Themes nicht teilen – jeder Kollege installiert sie selbst
-/.obsidian/themes/
-
-# Optionale persönliche Einstellungen / Cache
-/.obsidian/cache
-/.obsidian/hotkeys.json
+# Kompletter Vault-Config-Ordner (nutzerspezifisch, nicht teilen)
+/.obsidian/
 
 # Papierkorb des Vaults
 /.trash/
