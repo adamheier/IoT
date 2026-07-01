@@ -11,14 +11,14 @@
             "id": "dedf0f5460d5ec7f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Klausur/Probeklausur_2_MetalForm.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/workspace.json",
+                "bFile": ".obsidian/workspace.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Probeklausur_2_MetalForm"
+              "icon": "diff",
+              "title": "Diff: workspace.json  (Working Tree)"
             }
           }
         ]
@@ -44,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Dateiexplorer"
+              "title": "Files"
             }
           },
           {
@@ -156,17 +156,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Klausur/Probeklausur_2_MetalForm.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Gliederung von Probeklausur_2_MetalForm"
+              "title": "Outline"
             }
           },
           {
-            "id": "b93dbbe5baa14e84",
+            "id": "928416c54d3be5ca",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -184,18 +183,19 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Schnellauswahl öffnen": false,
-      "graph:Graph-Ansicht öffnen": false,
-      "canvas:Neuen Canvas erstellen": false,
-      "daily-notes:Heutige Notiz öffnen": false,
-      "templates:Vorlage einfügen": false,
-      "command-palette:Befehlspalette öffnen": false,
-      "bases:Neue Base erstellen": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
       "obsidian-git:Open Git source control": false
     }
   },
   "active": "dedf0f5460d5ec7f",
   "lastOpenFiles": [
+    "Klausur/Probeklausur_2_MetalForm.md",
     "Klausur/Probeklausur_1_AquaPur.md"
   ]
 }
