@@ -1,2 +1,14 @@
+<<<<<<< HEAD
 .obsidian/workspace.json
 .obsidian/plugins/*/data.json
+=======
+# === Obsidian ===
+# Kompletter Vault-Config-Ordner (nutzerspezifisch, nicht teilen)
+/.obsidian/
+
+# Papierkorb des Vaults
+/.trash/
+
+# === macOS ===
+.DS_Store
+>>>>>>> origin/main

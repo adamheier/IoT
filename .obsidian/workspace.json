@@ -20,8 +20,23 @@
               "icon": "diff",
               "title": "Diff: workspace.json  (Working Tree)"
             }
+          },
+          {
+            "id": "1e0634a351e44dd0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,12 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "conflict-files-obsidian-git.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of conflict-files-obsidian-git"
             }
           },
           {
@@ -193,8 +209,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "dedf0f5460d5ec7f",
+  "active": "1e0634a351e44dd0",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "Klausur/IoT_SS25.pdf",
+    "Klausur/Altklausur SoSe24.pdf",
     "Klausur/Probeklausur_2_MetalForm.md",
     "Klausur/Probeklausur_1_AquaPur.md"
   ]
