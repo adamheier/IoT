@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "d155fcb9f167d357",
+        "id": "7b0fea7db6052a2a",
         "type": "tabs",
         "children": [
           {
-            "id": "dedf0f5460d5ec7f",
+            "id": "4c811a2840c2e658",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/workspace.json",
-                "bFile": ".obsidian/workspace.json",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: workspace.json  (Working Tree)"
-            }
-          },
-          {
-            "id": "1e0634a351e44dd0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -171,13 +152,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of conflict-files-obsidian-git"
+              "title": "Outline"
             }
           },
           {
@@ -209,7 +189,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1e0634a351e44dd0",
+  "active": "928416c54d3be5ca",
   "lastOpenFiles": [
     "conflict-files-obsidian-git.md",
     "Klausur/IoT_SS25.pdf",
