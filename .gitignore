@@ -1,0 +1,17 @@
+# === Obsidian ===
+# Nutzerspezifischer UI-/Layout-Zustand (nicht teilen)
+/.obsidian/workspace.json
+/.obsidian/workspace-mobile.json
+
+# Plugins nicht teilen – jeder Kollege installiert sie selbst
+/.obsidian/plugins/
+
+# Optionale persönliche Einstellungen / Cache
+/.obsidian/cache
+/.obsidian/hotkeys.json
+
+# Papierkorb des Vaults
+/.trash/
+
+# === macOS ===
+.DS_Store
