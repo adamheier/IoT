@@ -44,9 +44,7 @@
 
 ### Kontext & Häufige Fehler
 
-**Was hat der Student falsch gemacht (nur 0.25/2 in Teil a!):**
-- Schrieb `ManufacturID`, `Manufactur-TypDescription`, `Manufactur-TypID` — falsche Namen!
-- Korrekte Namen kommen aus dem Diskussionspapier „Verwaltungsschale in der Praxis", Rubrik „idShort"
+→ Korrekte Namen kommen aus dem Diskussionspapier „Verwaltungsschale in der Praxis", Rubrik „idShort"
 
 **Namenskonvention PFLICHT: UpperCamelCase**
 → `ManufacturerName` ✅, `manufacturer_name` ❌, `manufacturerName` ❌
@@ -70,8 +68,6 @@
 >
 > **Teil b) IIRA:**
 > Ordnen Sie die Komponenten den passenden Domänen (Functional Domains & Physical Systems) und Informationsflüssen (Pfeilen) der IIRA zu.
->
-> *Komponenten: Betriebliche Produktionsplanung und –steuerung | Anwendung für Zustandsüberwachung | Datenmodell des Maschinenparks | Modbus Master und Slaves | Kommunikationsmodul | Maschinen mit Sensoren*
 
 ### Antwort
 
@@ -102,14 +98,6 @@
 **Kritischer Unterschied RAMI 4.0 vs. IIRA für das Kommunikationsmodul:**
 - RAMI 4.0: Kommunikationsmodul → **Integration**-Layer (es sitzt in der Maschine und übersetzt physikalisches Signal in digitale Daten — Übergang reale → digitale Welt)
 - IIRA: Kommunikationsmodul → **Information Flows (Pfeile)** (kein eigenständige Domäne, sondern der Datenfluss zwischen Domänen)
-
-**Was hat der Student falsch gemacht (nur 1/1.5 in beiden Teilen):**
-- SoSe24: Kommunikationsmodul → Communication statt Integration (RAMI), und Modbus Master → Information Flows statt Control (IIRA)
-- Der Student verwechselte die Ebenen für Kommunikationsmodul und Modbus-Komponenten
-
-**Merkhilfe RAMI 4.0 Layer (unten → oben):**
-> **A**lle **I**ngenieure **C**oden **I**n **F**ast **B**ytes
-> Asset → Integration → Communication → Information → Functional → Business
 
 **Logik für die Zuordnung:**
 - Modbus = das Protokoll selbst = standardisierte Datenübertragung zwischen verteilten Komponenten → **Communication**
@@ -149,15 +137,6 @@
 ❌ Herstellerspezifischer, proprietärer Standard (→ OPC-UA ist offen, von OPC Foundation)
 ❌ Lässt sich mit allen Dimensionen von IIRA vereinen (nicht als OPC-UA-spezifisches Merkmal zutreffend)
 
-### Kontext
-
-**Was hat der Student falsch gemacht (0.75/1 in SoSe24):**
-- Hatte „Speziell konzipiert für ressourcenbeschränkte Geräte" angekreuzt → falsch!
-- Hatte „Industrieakzeptanz" NICHT angekreuzt → aber das ist ein Kernmerkmal von OPC-UA
-
-**Merkhilfe (4 korrekte Merkmale):**
-> **S**emantik + **D**atenaustausch vertikal + **I**ndustrieakzeptanz + **S**icherheit = **SDIS**
-
 ---
 
 ## Aufgabe 3b: MQTT — Modbus-Ersatz, Topics, Wildcards, Features, QoS
@@ -187,11 +166,11 @@
 
 **Modbus → MQTT Ersatz:**
 
-| Alt (Modbus) | Neu (MQTT) | Rolle |
-|---|---|---|
-| Modbus-Master in Middleware | MQTT-Client | Publisher |
-| Modbus-Slave in Maschine | MQTT-Client | Publisher |
-| — (neu) | **MQTT-Broker** | Vermittler |
+| Alt (Modbus)                | Neu (MQTT)      | Rolle        |
+| --------------------------- | --------------- | ------------ |
+| Modbus-Master in Middleware | MQTT-Client     | Subscriber   |
+| Modbus-Slave in Maschine    | MQTT-Client     | Publisher    |
+| (neu)                       | **MQTT-Broker** | (Vermittler) |
 
 **Topics (SoSe24-Beispiel mit `Machinery/M1/...`):**
 ```
@@ -215,7 +194,8 @@ ProductionPlant/M1/ConditionMonitoring/Pressure
 - Alle Zustandsnachrichten aller Maschinen: `ProductionPlant/+/ConditionMonitoring/+`
 - Nur temperaturbezogen: `ProductionPlant/+/ConditionMonitoring/Temperature`
 
-**Protokollfeature für letzten Zustand ohne Warten:** **Retained Message**
+**Protokollfeature für letzten Zustand ohne Warten:** 
+- Retained Message
 
 **QoS-Entscheidung:**
 - SoSe24 (Sekundentakt, Verluste tolerierbar, Netzbelastung minimieren) → **QoS 0**
@@ -223,21 +203,12 @@ ProductionPlant/M1/ConditionMonitoring/Pressure
 
 ### Kontext & Häufige Fehler
 
-**Was hat der Student falsch gemacht (0.25/1.25 für den Modbus-Ersatz-Teil!):**
-- Schrieb: Modbus-Master → MQTT-Broker (Rolle Publisher) → **FALSCH!** Der Broker ist eine eigene neue Komponente, kein Ersatz für den Master
-- Schrieb: Modbus-Slave → MQTT-Client (Rolle Publisher) → die Rolle stimmt, aber die Erklärung war unvollständig
-
-**Korrekte Logik:** Sowohl Master als auch Slave werden zu MQTT-Clients. Der Master (in Middleware) sendet Steuerbefehle/empfängt Daten → **Publisher**. Die Slaves in den Maschinen liefern Sensordaten → ebenfalls **Publisher**. Der **MQTT-Broker** ist die komplett neue Komponente.
-
-**Topic-Fehler des Studenten (0.75/1 für Topics):**
-- Schrieb `Machinery/ConditionMonitoring/Temperature` ohne Maschinenbezeichnung M1 → Punktabzug!
-- Korrekt: `Machinery/M1/ConditionMonitoring/Temperature` (M1 muss enthalten sein!)
-
 **Wildcards Merkhilfe:**
 - `+` = Single-Level (genau eine Ebene): `Machinery/+/Temperature` = Temperature aller Maschinen
 - `#` = Multi-Level (alle restlichen Ebenen): `Machinery/#` = alles unter Machinery
 
 **QoS-Matrix:**
+
 | QoS | Garantie | Verwende wenn... |
 |---|---|---|
 | 0 | Höchstens einmal (Fire & Forget) | Hohe Frequenz + Verluste tolerierbar |
@@ -281,9 +252,6 @@ ProductionPlant/M1/ConditionMonitoring/Pressure
 - „Validitätsprüfung" → gilt für XML (XSD) UND JSON (JSON Schema) → beide ankreuzen!
 - „gute Lesbarkeit" → gilt für beide Formate → beide ankreuzen!
 
-**Was hat der Student falsch gemacht (1.25/2):**
-- Hat vermutlich „Lesbarkeit" und/oder „Validitätsprüfung" nur einem Format zugeordnet → Punktabzug
-
 ---
 
 ## Aufgabe 4b: XML ConditionMonitoring Nachrichtenstruktur
@@ -301,20 +269,6 @@ ProductionPlant/M1/ConditionMonitoring/Pressure
 
 ### Antwort
 
-**Korrekte XML-Struktur (nach Musterlösung aus der Klausurkorrektur):**
-
-```xml
-<ConditionMonitoring>
-  <MachineIdentifier>M1</MachineIdentifier>
-  <ProductionIdentifier>1234</ProductionIdentifier>
-  <PlannedProductionStartDateTime>2024-04-08T08:00:00Z</PlannedProductionStartDateTime>
-  <PlannedProductionEndDateTime>2024-04-08T16:00:00Z</PlannedProductionEndDateTime>
-  <SensorTypeCode>Temperature</SensorTypeCode>
-  <SensorMeasure unitCode="CEL">45.2</SensorMeasure>
-</ConditionMonitoring>
-```
-
-**Für SS25 (Druck statt Energieverbrauch, gleiche Struktur):**
 ```xml
 <ConditionMonitoring>
   <MachineIdentifier>M1</MachineIdentifier>
@@ -326,21 +280,23 @@ ProductionPlant/M1/ConditionMonitoring/Pressure
 </ConditionMonitoring>
 ```
 
+Mögliche unitCode=["BAR", "CEL", "KWH", "ST", "KWT", "KGM", "MTR", "HUR"]
 ### Kontext & Häufige Fehler
 
 **Was hat der Student in SoSe24 falsch gemacht (2.5/3):**
 - `<MachineID>` statt `<MachineIdentifier>` → ebXML CCType Suffix fehlt!
 - `<ProductionID>` statt `<ProductionIdentifier>` → gleicher Fehler
 - `<SensorType>` statt `<SensorTypeCode>` → Suffix `Code` fehlt
-- `<Measure><Content unit="CEL">` statt `<SensorMeasure unitCode="CEL">` → falscher Aufbau
+- `<Measure><Content unit="CEL">` statt `<SensorMeasure unitCode="CEL">`
 
 **ebXML CCType Suffixe — PFLICHT zu kennen:**
-| Suffix | Bedeutung | Beispiel |
-|---|---|---|
-| `Identifier` | Eindeutiger Bezeichner | `MachineIdentifier` |
-| `DateTime` | Zeitstempel | `PlannedProductionStartDateTime` |
-| `Code` | Standardisierter Code | `SensorTypeCode` |
-| `Measure` | Messwert + Einheit als Attribut | `<SensorMeasure unitCode="CEL">45.2</SensorMeasure>` |
+
+| Suffix       | Bedeutung                       | Beispiel                                             |
+| ------------ | ------------------------------- | ---------------------------------------------------- |
+| `Identifier` | Eindeutiger Bezeichner          | `MachineIdentifier`                                  |
+| `DateTime`   | Zeitstempel                     | `PlannedProductionStartDateTime`                     |
+| `Code`       | Standardisierter Code           | `SensorTypeCode`                                     |
+| `Measure`    | Messwert + Einheit als Attribut | `<SensorMeasure unitCode="CEL">45.2</SensorMeasure>` |
 
 **Wichtig:** Das Attribut heißt `unitCode`, nicht `unit`! → `<SensorMeasure unitCode="CEL">`
 
@@ -359,15 +315,24 @@ ProductionPlant/M1/ConditionMonitoring/Pressure
 ### Antwort
 
 **Tripel 1 — Maschine + Fertigungsauftrag:**
-| Subjekt | Prädikat | Objekt |
-|---|---|---|
-| M1 | processesOrder (bzw. hasProductionOrder) | 1234 |
+
+| Subjekt   | Prädikat           | Objekt |
+| --------- | ------------------ | ------ |
+| Machine_1 | hasProductionOrder | PO_4   |
 
 **Tripel 2 — Maschine + Energieverbrauch:**
-| Subjekt | Prädikat | Objekt |
-|---|---|---|
-| M1 | hasEnergyConsumption | 5 kWh |
 
+| Subjekt   | Prädikat             | Objekt           |
+| --------- | -------------------- | ---------------- |
+| Machine_1 | hasEnergyConsumption | EC_Messurement_2 |
+
+**Zwei geeignete Möglichkeiten zur Realisierung der semantischen Interoperabilität...**
+...bei **JSON:**
+- JSON-LD
+- ebXML CCTypes
+...bei **XML:**
+- RDF
+- ebXML CCTypes
 ### Kontext
 
 **RDF Grundprinzip:** Elementaraussagen als **Tripel**: Subjekt – Prädikat – Objekt
@@ -507,20 +472,20 @@ Begründung: Da so keine gleichzeitige Verfügbarkeit beider Systeme erforderlic
 
 **Teil b) EDI-Komponenten (NICHT die Standards!):**
 
-| Komponente | Funktion |
-|---|---|
-| **Konverter** | Wandelt interne Daten (aus ERP) in das standardisierte EDI-Format um (und umgekehrt) |
-| **Kommunikationsmodul / Konnektor** | Übernimmt die technische Datenübertragung an den Geschäftspartner |
-| **Mapping-Tool** | Ordnet Felder des internen Formats den Feldern des EDI-Standards zu |
+| Komponente                          | Funktion                                                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------------ |
+| **Inhouse-Anwendungssystem** (z.B. ERP) | Datenquelle; liefert die internen Daten (z.B. Transportauftrag) |
+| **Konverter**                           | Wandelt interne Daten in das standardisierte EDI-Format um (inkl. Mapping) und umgekehrt |
+| **Kommunikationsmodul / Konnektor**     | Übernimmt die technische Datenübertragung zum Geschäftspartner |
 
 **Teil c) EDIFACT-Nachrichtentypen:**
 
-| Prozessschritt | EDIFACT-Typ |
-|---|---|
-| Buchung / Reservierung von Transportkapazität | **IFTMBF** |
-| Erteilung von Transportaufträgen | **IFTMIN** |
-| Instruktionen zum Umschlag und Transport der Güter | **HANMOV** |
-| Versenden von Transportstatusmeldungen | **DESADV** |
+| Prozessschritt                                     | EDIFACT-Typ |
+| -------------------------------------------------- | ----------- |
+| Buchung / Reservierung von Transportkapazität      | **IFTMBF**  |
+| Erteilung von Transportaufträgen                   | **IFTMIN**  |
+| Instruktionen zum Umschlag und Transport der Güter | **HANMOV**  |
+| Versenden von Transportstatusmeldungen             | **IFTSTA**  |
 
 ### Kontext & Häufige Fehler
 
@@ -528,12 +493,15 @@ Begründung: Da so keine gleichzeitige Verfügbarkeit beider Systeme erforderlic
 - Nannte `ebXML`, `ANSI ASC X12`, `SWIFT` → das sind **Nachrichtenstandards/Standardisierungsorganisationen**, KEINE EDI-Komponenten!
 - Kommentar des Professors: „Keine EDI Komponenten, sondern Nachrichtentypen bzw. Standardisierungsorganisationen"
 
-**Merkhilfe EDI-Komponenten: K-K-M**
-- **K**onverter → Format umwandeln
-- **K**ommunikationsmodul → übertragen
-- **M**apping-Tool → Felder zuordnen
+**Merkhilfe EDI-Komponenten: I-K-K**
+- **I**nhouse-Anwendungssystem (ERP) → Datenquelle
+- **K**onverter → Format umwandeln (inkl. Mapping)
+- **K**ommunikationsmodul / Konnektor → Übertragung zum Partner
 
-**Middleware-Modell Vergleich:**
+> ⚠️ Mapping ist KEINE eigene Komponente — es ist Teil des Konverters!
+
+**Middleware-Modell Vergleich:**#
+
 | Merkmal | Synchron (z.B. RPC) | Asynchron (MOM mit Queue) |
 |---|---|---|
 | Kopplung | Eng (beide gleichzeitig nötig) | Lose (zeitliche Entkopplung) |
@@ -575,11 +543,11 @@ Begründung: Da so keine gleichzeitige Verfügbarkeit beider Systeme erforderlic
 
 ## Schnell-Checkliste für die Klausur
 
-- [ ] **Aufgabe 1a:** idShort in `UpperCamelCase` — `ManufacturerName`, `ManufacturerTypId` oder `ManufacturerTypName`, `AssetId`, `InstanceId`
-- [ ] **Aufgabe 1b:** Condition Monitoring Merkmale IMMER mit Einheit (°C, bar, kW) oder Strich (-)
-- [ ] **Aufgabe 2 RAMI:** Kommunikationsmodul → **Integration** (NICHT Communication!)
-- [ ] **Aufgabe 2 IIRA:** Kommunikationsmodul → **Information Flows (Pfeile)** (keine Domäne!)
-- [ ] **Aufgabe 2 IIRA:** Modbus Master/Slaves → **Control / Application**
+- [x] **Aufgabe 1a:** idShort in `UpperCamelCase` — `ManufacturerName`, `ManufacturerTypId` oder `ManufacturerTypName`, `AssetId`, `InstanceId`
+- [x] **Aufgabe 1b:** Condition Monitoring Merkmale IMMER mit Einheit (°C, bar, kW) oder Strich (-)
+- [x] **Aufgabe 2 RAMI:** Kommunikationsmodul → **Integration** (NICHT Communication!)
+- [x] **Aufgabe 2 IIRA:** Kommunikationsmodul → **Information Flows (Pfeile)** (keine Domäne!)
+- [x] **Aufgabe 2 IIRA:** Modbus Master/Slaves → **Control / Application**
 - [ ] **Aufgabe 3a OPC-UA:** Genau 4: Semantisches Datenmodell + Datenaustausch vertikal + Industrieakzeptanz + Sicherheit
 - [ ] **Aufgabe 3b MQTT:** Modbus-Master → MQTT-Client (Publisher), Modbus-Slave → MQTT-Client (Publisher), NEU: MQTT-Broker
 - [ ] **Aufgabe 3b Topics:** M1 muss im Topic enthalten sein! `Machinery/M1/ConditionMonitoring/Temperature`
@@ -590,7 +558,7 @@ Begründung: Da so keine gleichzeitige Verfügbarkeit beider Systeme erforderlic
 - [ ] **Aufgabe 5:** Vorteil benennen + KONKRETES Beispiel aus dem Unternehmenskontext!
 - [ ] **Aufgabe 6:** Immer: Jetzt-Situation + I4.0-Lösung + konkrete Veränderung
 - [ ] **Aufgabe 7a:** Nachrichtenorientiertes Modell + asynchron + Warteschlange → zeitliche Entkopplung
-- [ ] **Aufgabe 7b:** Konverter + Kommunikationsmodul + Mapping-Tool (NICHT ebXML/ANSI/SWIFT!)
+- [ ] **Aufgabe 7b:** Inhouse-Anwendungssystem + Konverter + Kommunikationsmodul/Konnektor (NICHT ebXML/ANSI/SWIFT! Mapping ≠ eigene Komponente!)
 - [ ] **Aufgabe 7c:** IFTMBF=Buchung | IFTMIN=Transportauftrag | HANMOV=Umschlag | DESADV=Status
 
 ---
